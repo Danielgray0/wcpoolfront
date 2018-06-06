@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import {Table} from 'reactstrap';
 import {gql} from 'apollo-boost';
 import {Query} from 'react-apollo';
-import "./Home.css";
 
 const query = gql`
   query {
@@ -31,8 +30,6 @@ export default class TeamTable extends Component {
       )
     )
   }
-
-
 
   render() {
     return (
