@@ -49,7 +49,7 @@ export default class Home extends Component {
   renderTeams(teams) {
     return teams.map(({id, country, icon, points}) => (
         <tr key={id}>
-          <td><span className={`flag-icon flag-icon-${icon}`}></span></td>
+          <td><span className={`flag-icon flag-icon-${icon}`}/></td>
           <td>
             {country}
           </td>

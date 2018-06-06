@@ -1,4 +1,4 @@
-
+/*
 select.form-control,
 textarea.form-control,
 input.form-control {
@@ -7,10 +7,10 @@ input.form-control {
 input[type=file] {
   width: 100%;
 }
+*/
 
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
   background-color: #F5EED5;
 }
