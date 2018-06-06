@@ -1,7 +1,5 @@
 import React, {Component} from "react";
-import {
-  Container,
-  Table,} from 'reactstrap';
+import {Table} from 'reactstrap';
 import {gql} from 'apollo-boost';
 import {Query} from 'react-apollo';
 import "./Home.css";
@@ -18,7 +16,7 @@ const query = gql`
   }
 `;
 
-export default class Home extends Component {
+export default class TeamTable extends Component {
 
 
   renderTeams(teams) {
@@ -38,12 +36,6 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div className="Home">
-        <Container>
-          <div className="lander">
-            <h1>Cupology</h1>
-            <p>Ur mom gay</p>
-
             <Query query={query}>
               {({loading, error, data}) => {
                 if (loading) return "Loading...";
@@ -64,9 +56,6 @@ export default class Home extends Component {
                 );
               }}
             </Query>
-          </div>
-        </Container>
-      </div>
     );
   }
 }
