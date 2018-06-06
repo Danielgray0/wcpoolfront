@@ -1,7 +1,18 @@
 import React, {Component} from "react";
 import {
   Container,
-  Table
+  Table,
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
 } from 'reactstrap';
 import {gql} from 'apollo-boost';
 import {Query} from 'react-apollo';
@@ -21,6 +32,20 @@ const query = gql`
 
 export default class Home extends Component {
 
+    constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
   renderTeams(teams) {
     return teams.map(({id, country, icon, points}) => (
         <tr key={id}>
@@ -34,10 +59,28 @@ export default class Home extends Component {
     )
   }
 
+
+
   render() {
     return (
       <div className="Home">
         <Container>
+          <div>
+            <Navbar color="dark" navbar navbar-dark bg-dark>
+                <NavbarBrand href="/">WorldCupBoy</NavbarBrand>
+                <NavbarToggler onClick={this.toggle} />
+                <Collapse isOpen={this.state.isOpen} navbar>
+                    <Nav className="home-nav" navbar pullRight>
+                        <NavItem>
+                            <NavLink href="/signup/">Signup</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="/login/">Login</NavLink>
+                        </NavItem>
+                    </Nav>
+                </Collapse>
+            </Navbar>
+          </div>
           <div className="lander">
             <h1>Cupology</h1>
             <p>Ur mom gay</p>
